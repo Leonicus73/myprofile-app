@@ -1,8 +1,9 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const app = express()
+const uri = process.env.MONGO_URI;
 
-mongoose.connect("mongodb+srv://beonicus:Archery@01@cluster0.ofxbw5m.mongodb.net/myDatabase")
+mongoose.connect(uri)
 
 app.listen("5000", ()=>{
     console.log("Server is Running!")
