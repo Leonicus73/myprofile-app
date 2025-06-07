@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const Temperature = () => {
+  const Temperature = () => {
   const [temp, setTemp] = useState(null);
-  const API_KEY = "c54ab4fcb69a4326608abf6c8dd7702f"; // Replace with your actual API key
+  const API_KEY = import.meta.env.VITE_API_KEY;
+ // Replace with your actual API key
   const CITY = "Singapore"; // Change to your location
 
   useEffect(() => {
