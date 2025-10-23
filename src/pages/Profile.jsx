@@ -2,7 +2,7 @@ import RealTimeClock from "../components/RealTimeClock";
 import Temperature from "../components/Temperature";
 import { Link } from "react-router-dom";
 import TodoList from "../components/TodoList";
-import profilePic from "../assets/pics/MYSELF.jpg";
+import profilePic from "../assets/Pics/MYSELF.jpg";
 import Financial from "../components/Financial";
 import Health from "../components/Health";
 import Luck from "../components/Luck";

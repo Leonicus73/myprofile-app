@@ -17,7 +17,6 @@ const expenditureSchema = new mongoose.Schema({
 });
 
 
-
 const Expenditure = mongoose.model("Expenditure", expenditureSchema);
 
 // API Routes

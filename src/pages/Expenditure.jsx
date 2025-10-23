@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid"; // Import UUID generator
+// import { v4 as uuidv4 } from "uuid"; // Import UUID generator
 
 function Expenditure() {
   const [items, setItems] = useState([]);
@@ -9,24 +9,31 @@ function Expenditure() {
   const [cost, setCost] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/expenditures")
+    fetch("http://localhost:8080/api/expenditures")
       .then(res => res.json())
       .then(data => setItems(data));
   }, []);
 
   // Function to fetch data manually
   const loadData = async () => {
-    const response = await fetch("http://localhost:5000/expenditures");
+  try {
+    const response = await fetch("http://localhost:8080/api/expenditures");
+    if (!response.ok) throw new Error("Failed to fetch");
+
     const data = await response.json();
     setItems(data);
-    setDeletedItems([]); // Reset deleted items list
-  };
-
+    setDeletedItems([]);
+  } catch (err) {
+    console.error("Load failed:", err);
+    alert("Failed to load data from backend");
+  }
+};
 
   // Add item function
   const addItem = () => {
     if (product.trim() && cost.trim()) {
-      const newItem = { id: uuidv4(), name: product, price: parseFloat(cost) }; // Generate UUID
+      // const newItem = { id: uuidv4(), name: product, price: parseFloat(cost) }; // Generate UUID
+      const newItem = {name: product, price: parseFloat(cost) };
       setItems([...items, newItem]);
       setProduct("");
       setCost("");
@@ -35,17 +42,26 @@ function Expenditure() {
 
   // Save item function
   const saveItems = async () => {
-    // Filter out deleted items before saving
     const filteredItems = items.filter(item => !deletedItems.includes(item.id));
     
-    await fetch("http://localhost:5000/expenditures", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(filteredItems)
-    });
-
+    // Save remaining items
+    for (const item of filteredItems) {
+      await fetch("http://localhost:8080/api/expenditures", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(item)
+      });
+    }
+  
+    // Delete removed items from backend
+    for (const id of deletedItems) {
+      await fetch(`http://localhost:8080/api/expenditures/${id}`, {
+        method: "DELETE"
+      });
+    }
+  
     alert("Items saved!");
-    setDeletedItems([]); // Reset after saving
+    setDeletedItems([]);
   };
 
 
