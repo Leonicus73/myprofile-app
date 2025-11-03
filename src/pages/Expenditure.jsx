@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import API_BASE_URL from "../config/apiConfig";
 // import { v4 as uuidv4 } from "uuid"; // Import UUID generator
 
 function Expenditure() {
@@ -9,15 +10,16 @@ function Expenditure() {
   const [cost, setCost] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/expenditures")
-      .then(res => res.json())
-      .then(data => setItems(data));
+  fetch(`${API_BASE_URL}/api/expenditures`)
+    .then(res => res.json())
+    .then(data => setItems(data));
   }, []);
+
 
   // Function to fetch data manually
   const loadData = async () => {
   try {
-    const response = await fetch("http://localhost:8080/api/expenditures");
+    const response = await fetch(`${API_BASE_URL}/api/expenditures`);
     if (!response.ok) throw new Error("Failed to fetch");
 
     const data = await response.json();
@@ -46,7 +48,7 @@ function Expenditure() {
     
     // Save remaining items
     for (const item of filteredItems) {
-      await fetch("http://localhost:8080/api/expenditures", {
+      await fetch(`${API_BASE_URL}/api/expenditures`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(item)
@@ -55,7 +57,7 @@ function Expenditure() {
   
     // Delete removed items from backend
     for (const id of deletedItems) {
-      await fetch(`http://localhost:8080/api/expenditures/${id}`, {
+      await fetch(`${API_BASE_URL}/api/expenditures/${id}`, {
         method: "DELETE"
       });
     }
