@@ -10,8 +10,8 @@ const RealTimeClock = () => {
 
   return (
     <div>
-      <h2>🕒 {currentTime.toLocaleTimeString()}</h2>
-      <h3>📅 {currentTime.toLocaleDateString()}</h3>
+      <p className="text-sm">🕒 {currentTime.toLocaleTimeString()}</p>
+      <p className="text-sm">📅 {currentTime.toLocaleDateString()}</p>
     </div>
   );
 };

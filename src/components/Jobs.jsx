@@ -13,12 +13,12 @@ function Jobs() {
       <div className="flex-1">
         <Link
           to="/jobpage"
-          className="text-xl font-bold text-yellow-600 block text-center p-2 bg-yellow-300 text-white rounded-lg hover:bg-yellow-600"
+          className="text-xl font-bold text-yellow-600 block p-2 bg-yellow-300 text-white rounded-lg hover:bg-yellow-600"
         >
           💼 Jobs
         </Link>
-        <p className="text-gray-700">💼 Current Role: Robotic Engineer | 🚀 Next Goal: AI Engineer</p>
-        {advice && <p className="mt-2 text-yellow-700">{advice}</p>}
+        <p className="text-sm text-gray-700">💼 Current Role: Robotic Engineer | 🚀 Next Goal: AI Engineer</p>
+        {advice && <p className="text-sm mt-2 text-yellow-700">{advice}</p>}
       </div>
 
       {/* Advice Button */}

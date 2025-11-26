@@ -13,7 +13,7 @@ import React, { useState, useEffect } from "react";
       .catch(err => console.error("Error fetching temperature:", err));
   }, []);
 
-  return <h3>🌡 Temperature: {temp ? `${temp}°C` : "Loading..."}</h3>;
+  return <p className="text-sm">🌡 Temperature: {temp ? `${temp}°C` : "Loading..."}</p>;
 };
 
 export default Temperature;

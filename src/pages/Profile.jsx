@@ -15,28 +15,28 @@ function Profile() {
     <div className="max-w-6xl mx-auto grid grid-cols-3 gap-6 p-6">
       
       {/* Left Column: Profile + Status + Todo */}
-      <div className="col-span-2 bg-blue-300 shadow-lg rounded-lg p-6 text-center">
-        <h2 className="text-2xl font-bold text-gray-700">Profile Page</h2>
-
-        <div className="flex items-center justify-center space-x-6 mt-4">
-          <img
-            src={profilePic}
-            alt="Profile"
-            className="w-32 h-32 rounded-full border-2 border-gray-300 object-cover"
-          />
-          <div className="text-left">
-            <RealTimeClock />
-            <Temperature />
-          </div>
+      <div className="col-span-2 bg-blue-300 shadow-lg rounded-lg p-6 text-left">
+       <h2 className="text-2xl font-bold text-gray-700">Profile Page</h2>
+       
+       <div className="flex items-start space-x-6 mt-4">
+         <img
+           src={profilePic}
+           alt="Profile"
+           className="w-32 h-32 rounded-full border-2 border-gray-300 object-cover"
+         />
+        <div>
+           <RealTimeClock />
+           <Temperature />
         </div>
+      </div>
 
         {/* Status Sections */}
         <div className="mt-6 space-y-4">
-          <Health color="red" />
-          <Financial color="green" />
-          <Jobs color="yellow" />
-          <Social color="purple" />
-          <Luck color="indigo" />
+          <Health color />
+          <Financial color />
+          <Jobs color />
+          <Social color />
+          <Luck color />
         </div>
 
         {/* To-Do List Section */}
