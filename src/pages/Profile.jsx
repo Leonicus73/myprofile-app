@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import TodoList from "../components/TodoList";
 import profilePic from "../assets/Pics/MYSELF.jpg";
 import Financial from "../components/Financial";
+import Jobs from "../components/Jobs";
 import Health from "../components/Health";
 import Luck from "../components/Luck";
 import Social from "../components/Social";
@@ -34,6 +35,7 @@ function Profile() {
       <div className="mt-6 space-y-4">
         <Health />
         <Financial />
+        <Jobs />
         <Social /> 
         <Luck />             
       </div>

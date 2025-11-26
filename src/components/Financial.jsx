@@ -12,7 +12,7 @@ function Financial() {
     <div className="bg-green-100 p-4 rounded-lg shadow-md flex justify-between items-center">
   <div className="flex-1">
     <Link to="/financialpage" className="text-xl font-bold text-green-600 block text-center p-2 bg-green-300 text-white rounded-lg hover:bg-green-600">
-        💰 Financial Status
+        💰 Financial
       </Link>
     <p className="text-gray-700">💰 Stable | ⚠ Review Expenses</p>
     {advice && <p className="mt-2 text-green-700">{advice}</p>}
