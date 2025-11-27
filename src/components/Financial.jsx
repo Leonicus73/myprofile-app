@@ -31,7 +31,7 @@ function Financial() {
 
       <button
         onClick={getAdvice}
-        className="ml-4 p-2 bg-green-500 text-white rounded-lg"
+        className="ml-4 p-2 bg-green-500 text-white rounded-lg text-sm whitespace-nowrap"
       >
         {showAdvice ? "Hide Advice" : "Show Advice"}
       </button>

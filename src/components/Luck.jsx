@@ -24,7 +24,7 @@ function Luck() {
 
       <button
         onClick={toggleAdvice}
-        className="ml-4 p-2 bg-purple-500 text-white rounded-lg whitespace-nowrap"
+        className="ml-4 p-2 bg-purple-500 text-white rounded-lg text-sm whitespace-nowrap"
       >
         {showAdvice ? "Hide Advice" : "Show Advice"}
       </button>
